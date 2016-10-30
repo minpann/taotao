@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+.classpath
+.project
+.settings
+*.iml
+*/*.iml
+classes
+*.class
+/build
+*target
+*test-output
+.idea/
+webapp/src/main/webapp/node_modules/
