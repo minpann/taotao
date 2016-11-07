@@ -3,6 +3,8 @@ package com.taotao.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.common.pojo.EUDataGridResult;
+import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.common.utils.IDUtils;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemExample;
@@ -10,6 +12,7 @@ import com.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,11 +27,10 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public TbItem getItemById(long itemId) {
         TbItemExample example = new TbItemExample();
-        TbItemExample.Criteria criteria= example.createCriteria();
+        TbItemExample.Criteria criteria = example.createCriteria();
         criteria.andIdEqualTo(itemId);
         List<TbItem> list = itemMapper.selectByExample(example);
-        if (list != null && list.size() > 0)
-        {
+        if (list != null && list.size() > 0) {
             TbItem item = list.get(0);
             return item;
         }
@@ -37,6 +39,7 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 商品列表查询
+     *
      * @param page
      * @param rows
      * @return
@@ -59,5 +62,18 @@ public class ItemServiceImpl implements ItemService {
         result.setTotal(pageInfo.getTotal());
 
         return result;
+    }
+
+    @Override
+    public TaotaoResult createItem(TbItem item) {
+        Long itemId = IDUtils.genItemId();
+        item.setId(itemId);
+        item.setStatus((byte) 1);
+        item.setCreated(new Date());
+        item.setUpdated(new Date());
+
+        //插入到数据库
+        itemMapper.insert(item);
+        return TaotaoResult.ok();
     }
 }
