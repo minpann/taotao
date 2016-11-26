@@ -31,10 +31,10 @@ public class ItemController {
         return result;
     }
 
-    @RequestMapping(value = "/item/save", method = RequestMethod.POST)
+    @RequestMapping(value="/item/save", method=RequestMethod.POST)
     @ResponseBody
-    public TaotaoResult save(TbItem item) {
-        TaotaoResult result = itemService.createItem(item);
+    private TaotaoResult createItem(TbItem item, String desc, String itemParams) throws Exception {
+        TaotaoResult result = itemService.createItem(item, desc, itemParams);
         return result;
     }
 }
