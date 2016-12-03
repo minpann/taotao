@@ -12,6 +12,7 @@
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/taotao-manager-web" />
+    <file type="web" url="file://$PROJECT_DIR$/taotao-rest" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
