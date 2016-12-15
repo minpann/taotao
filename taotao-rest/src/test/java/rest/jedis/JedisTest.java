@@ -20,7 +20,7 @@ public class JedisTest {
 	@Test
 	public void testJedisSingle() {
 		//创建一个jedis的对象。
-		Jedis jedis = new Jedis("192.168.25.153", 6379);
+		Jedis jedis = new Jedis("192.168.25.133", 6379);
 		//调用jedis对象的方法，方法名称和redis的命令一致。
 		jedis.set("key1", "jedis test");
 		String string = jedis.get("key1");
@@ -35,7 +35,7 @@ public class JedisTest {
 	@Test
 	public void testJedisPool() {
 		//创建jedis连接池
-		JedisPool pool = new JedisPool("192.168.25.153", 6379);
+		JedisPool pool = new JedisPool("192.168.25.133", 6379);
 		//从连接池中获得Jedis对象
 		Jedis jedis = pool.getResource();
 		String string = jedis.get("key1");
@@ -54,12 +54,12 @@ public class JedisTest {
 	public void testJedisCluster() {
 		LOGGER.debug("调用redisCluster开始");
 		HashSet<HostAndPort> nodes = new HashSet<>();
-		nodes.add(new HostAndPort("192.168.25.153", 7001));
-		nodes.add(new HostAndPort("192.168.25.153", 7002));
-		nodes.add(new HostAndPort("192.168.25.153", 7003));
-		nodes.add(new HostAndPort("192.168.25.153", 7004));
-		nodes.add(new HostAndPort("192.168.25.153", 7005));
-		nodes.add(new HostAndPort("192.168.25.153", 7006));
+		nodes.add(new HostAndPort("192.168.25.133", 7001));
+		nodes.add(new HostAndPort("192.168.25.133", 7002));
+		nodes.add(new HostAndPort("192.168.25.133", 7003));
+		nodes.add(new HostAndPort("192.168.25.133", 7004));
+		nodes.add(new HostAndPort("192.168.25.133", 7005));
+		nodes.add(new HostAndPort("192.168.25.133", 7006));
 		LOGGER.info("创建一个JedisCluster对象");
 		JedisCluster cluster = new JedisCluster(nodes);
 		LOGGER.debug("设置key1的值为1000");
