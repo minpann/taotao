@@ -66,6 +66,13 @@
         <processorPath useClasspath="true" />
         <module name="taotao-portal" />
       </profile>
+      <profile default="false" name="Annotation profile for taotao-search" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="taotao-search" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="taotao-common" target="1.7" />
@@ -76,6 +83,7 @@
       <module name="taotao-parent" target="1.7" />
       <module name="taotao-portal" target="1.7" />
       <module name="taotao-rest" target="1.7" />
+      <module name="taotao-search" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
