@@ -18,7 +18,6 @@ import com.taotao.portal.service.ItemService;
 
 /**
  * 商品信息管理Service
-
  * @version 1.0
  */
 @Service
