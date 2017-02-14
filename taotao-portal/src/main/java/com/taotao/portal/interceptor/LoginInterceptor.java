@@ -28,7 +28,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		//取不到用户信息
 		if (null == user) {
 			//跳转到登录页面，把用户请求的url作为参数传递给登录页面。
-			response.sendRedirect(userService.SSO_DOMAIN_BASE_USRL + userService.SSO_PAGE_LOGIN 
+			response.sendRedirect(userService.SSO_BASE_URL + userService.SSO_PAGE_LOGIN
 					+ "?redirect=" + request.getRequestURL());
 			//返回false
 			return false;
